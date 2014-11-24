@@ -1,0 +1,21 @@
+<!--<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>-->
+
+<body>
+ <article>
+ 	<div class="articleCircle">
+ 		<img svg-src="warhawk" class="articleImage"></img>
+    </div>
+ 	<h1>Playstation's Warhawk Leaderboard widget</h1>
+	<h3><a href="https://github.com/sillypog/warhawk.git" target="_blank">https://github.com/sillypog/warhawk.git</a></h3>
+    <p>One of my first (semi)-professional Flash projects was the development of a leaderboard widget for Sony Playstation's Warhawk game. This is one of the few projects where I was entirely responsible for the concepting, design and development.</p>
+    <p>A friend of mine was consulting for Sony as they developed their system for gathering player data and he offered me the opportunity to create distributed widgets using their feed. We planned to create three different widgets to show data in different ways: a Leaderboard of all players, a head-to-head of player subsets, and one for individual player stats. Beyond that, the initial specifications were very general: we wanted to target as many social media sites as possible and it had to run on the Playstation 3, which meant developing for Flash Player 7 using Actionscript 2. After I created a very simple leaderboard widget based on Flash's accordion component, it became much clearer what features were needed, providing more options for players to interact with the data. To accomplish this, I decided to wrap the functionality of all three widgets into one, allowing users to move between modes as needed. I communicated the new direction to the team first with a text presentation to solidify the specifications, then with an interactive design presentation which helped explain the user flow in a clear way and provided a template for development.<p>
+	<p>Showing single lines for each player in leaderboard modes and their details in individual stats mode allowed me to replace the accordion with a more interesting visual graph which had the added benefit of reducing the file size. To mitigate the complexity of the multistate design, I developed the application on top of an MVC framework based on Colin Moock's design. The framework uses the Observer pattern which I recycled for all of the interactive elements on the screen, creating a system similar to Actionscript 3 event listeners. Click events in the view components are handled by their controller which calls the appropriate method on the model to change the application state; the state change is broadcast from the model to all subscribing observers as a message bundle. Some state changes require a simple redraw, others use more complex animation effects such as the 'TV warm up' glow when the whole screen is redrawn so some message bundles include instructions to queue events while animations play. This was my first time working with scripted animation and I wrote my own tweening engine which subscribes to the model's messages and manipulates the view components as appropriate; in hindsight it may have been simpler for the views to control their own animation via calls to a global engine such as TweenLite (although my class is extremely lightweight due to its specialisation).</p>
+	<p>One decision that was made before I was brought in was to use Clearspring to manage social media distribution. This platform makes it easy to embed a swf in a variety of popular sites (eg Facebook, iGoogle). I used their API to integrate the sharing menu directly into the widget to provide some design control. Because the swf is hosted by Clearspring and the data is provided by Sony, I  set up a PHP proxy server on my own domain to work around the Flash Player security restrictions.</p>
+	<p><a href="/articles/warhawk/version2_spec.ppt" target="_blank">Specifications for version 2.</a></p>
+	<p><a href="/articles/warhawk/version2_design.html" target="_blank">Design presentation for version 2.</a> Controls are at page bottom. </p>
+ </article>
+</body>
+<!--</html>-->

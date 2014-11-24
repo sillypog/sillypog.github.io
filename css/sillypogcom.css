@@ -1,0 +1,392 @@
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  background: -moz-radial-gradient(center, #f0f0f0, #cccccc) no-repeat #cccccc;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(#f0f0f0), to(#cccccc)) no-repeat #cccccc;
+  background-attachment: fixed;
+  /* Global text properties */
+  color: #666666;
+  font-family: 'Open Sans', Arial Black, Gadget, sans-serif;
+  letter-spacing: -0.03em; }
+
+.no-cssgradients body {
+  /* Can't do radial gradients in IE and there doesn't seem to be a reliable fallback. */
+  background-image: url("jpg/bgGradient.jpg"); }
+
+h1, h2 {
+  font-size: 36px;
+  line-height: 36px; }
+
+h1 {
+  font-weight: 600; }
+
+h2 {
+  font-weight: 400;
+  letter-spacing: -0.025em; }
+
+h3 {
+  font-size: 24px;
+  font-weight: 400; }
+
+p {
+  font-weight: 400;
+  font-size: 18px; }
+
+a:link {
+  color: #666666; }
+
+a:visited {
+  color: #666666; }
+
+a:hover {
+  color: #993366; }
+
+a:active {
+  color: #333333; }
+
+/* Remove borders around anchors that are images in IE */
+a img {
+  border: none; }
+
+/*-----------------
+* Utility classes
+*
+*-----------------*/
+.hidden {
+  display: none; }
+
+.movable {
+  position: absolute; }
+
+.plainList {
+  list-style: none; }
+
+.centered {
+  margin-left: auto;
+  margin-right: auto; }
+
+.paleWhiteBG {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  opacity: 0.3;
+  filter: alpha(opacity=30); }
+
+/*-----------------
+* Global header
+*
+*-----------------*/
+header {
+  width: 100%;
+  height: 100px;
+  border-spacing: 0px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-style: solid;
+  border-bottom-width: 3px; }
+
+header h1 {
+  margin: 0px; }
+
+/* Technique copied from soulwire.co.uk */
+header h1 a {
+  background: url("/svg/sillypog.svg") no-repeat scroll center center transparent;
+  display: block;
+  text-indent: -999px;
+  /* Text in anchor is only used for search? */
+  height: 100px;
+  width: 450px;
+  position: absolute;
+  top: 0px; }
+
+/* IE doesn't handle SVG so use modernizr to use a png instead. Other properties are the same. */
+.no-svg header h1 a {
+  background: url("/png/sillypog.png") no-repeat scroll center center transparent; }
+
+/*-----------------
+* Global footer
+*
+*-----------------*/
+body > footer {
+  width: 100%;
+  height: 40px;
+  border-top-color: #FFFFFF;
+  border-top-style: solid;
+  border-top-width: 3px;
+  position: absolute;
+  bottom: 0px;
+  overflow: hidden;
+  /* nav element will disappear if the page is too narrow. I prefer this to having it pop out of the div*/ }
+
+#footerButtons {
+  width: 100%;
+  position: absolute;
+  bottom: 0px; }
+
+#footerButtons a {
+  text-decoration: none; }
+
+#footerButtons p {
+  float: left;
+  margin: 0px 0px 2px 50px;
+  font-size: 26px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+#footerButtons #contact {
+  float: right;
+  margin-right: 50px; }
+
+/*-----------------
+* Sections wrapper
+*
+*-----------------*/
+#sections {
+  width: 100%;
+  text-align: center;
+  /* Has to be set so that IE will horizontally centre content */
+  overflow-x: auto;
+  position: absolute;
+  top: 103px;
+  /* Accounts for header and border */
+  bottom: 43px;
+  /* Accounts for footer and border */ }
+
+/*-----------------
+* Section: About
+*
+*-----------------*/
+#about {
+  width: 100%;
+  height: 100%; }
+
+#aboutFloater {
+  float: left;
+  height: 50%;
+  margin-bottom: -230px;
+  /* For vertical centering, margin is half of the section height */ }
+
+#aboutFloated {
+  position: relative;
+  height: 460px;
+  width: 1100px;
+  text-align: left;
+  margin: 0px auto;
+  clear: both; }
+
+#about header {
+  text-align: center;
+  float: left; }
+
+.bigCircle {
+  background: rgba(153, 51, 102, 0.3);
+  height: 460px;
+  width: 460px;
+  /* Width and height are half the intended values */
+  margin-right: 20px;
+  -moz-border-radius: 460px;
+  -webkit-border-radius: 460px;
+  border-radius: 460px;
+  border-style: none; }
+
+.no-opacity .bigCircle {
+  background-image: url("png/aboutCircle.png"); }
+
+#about header h1 {
+  padding-top: 175px; }
+
+#about header h2 {
+  margin-top: 0px; }
+
+#aboutText {
+  margin-top: 75px;
+  float: left;
+  width: 600px; }
+
+#aboutText p {
+  margin: 0px 0px 24px 0px;
+  /* Helps to align the top with the beginning of the flow divs but also ensures there's a line break between paragraphs. */ }
+
+#aboutText p:last-child {
+  width: 525px; }
+
+#aboutLinks {
+  position: absolute;
+  bottom: 0px;
+  right: 0px; }
+
+#aboutLinks img {
+  margin-left: 75px; }
+
+@media (max-width: 1024px) {
+  p {
+    font-size: 14px; }
+
+  .bigCircle {
+    height: 300px;
+    width: 300px;
+    -moz-border-radius: 300px;
+    -webkit-border-radius: 300px;
+    border-radius: 300px; }
+
+  #about header h1 {
+    padding-top: 120px; }
+
+  #about header h1, #about header h2 {
+    font-size: 24px;
+    line-height: 24px; }
+
+  #aboutFloated {
+    height: 300px;
+    width: 900px; }
+
+  #aboutFloater {
+    margin-bottom: -150px; }
+
+  #aboutText {
+    margin-top: 55px;
+    width: 550px; }
+
+  #aboutText p:last-child {
+    width: 455px; }
+
+  #aboutLinks img {
+    margin-left: 55px;
+    transform-origin: bottom right;
+    -moz-transform-origin: bottom right;
+    -ms-transform-origin: bottom right;
+    -o-transform-origin: bottom right;
+    -webkit-transform-origin: bottom right;
+    transform: scale(0.8, 0.8);
+    -moz-transform: scale(0.8, 0.8);
+    -ms-transform: scale(0.8, 0.8);
+    -o-transform: scale(0.8, 0.8);
+    -webkit-transform: scale(0.8, 0.8); } }
+/*-----------------
+* Section: Portfolio
+*
+*-----------------*/
+#description {
+  float: left;
+  padding: 20px; }
+
+.area {
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+
+.portfolioCircle {
+  background: #993366;
+  height: 156px;
+  width: 156px;
+  /* Width and height are half the intended values */
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  border-style: none;
+  margin: -78px;
+  /* Centers the content around the 0,0 */ }
+
+.portfolioCircle > img {
+  padding: 29px; }
+
+#contents {
+  float: right; }
+
+li.contentItem {
+  height: 1px; }
+
+/*-----------------
+* Section: Links
+*
+*-----------------*/
+.svg [class^="link-"], .inlinesvg [class^="link-"] {
+  background-image: url(/svg/link-icons.svg);
+  width: 100px;
+  height: 78px;
+  margin: auto; }
+
+.nosvg [class^="link-"] {
+  background: url(/png/link-icons.png); }
+
+.link-twitter {
+  background-position: 0 0; }
+
+.link-blogger {
+  background-position: -100px 0; }
+
+.link-github {
+  background-position: -200px 0; }
+
+.link-linkedin {
+  background-position: -300px 0; }
+
+.link-email {
+  background-position: -400px 0; }
+
+.linksTopSpacer {
+  height: 40px; }
+
+#linksList {
+  /*max-width:600px;*/
+  /* Can change the shape here */
+  margin: 100px auto;
+  padding: 0; }
+
+#linksList > li {
+  display: inline-block;
+  padding: 80px; }
+
+/*-----------------
+* Section: Articles
+*
+*-----------------*/
+article {
+  width: 75%;
+  max-width: 1100px;
+  text-align: left;
+  margin: 0px auto;
+  padding-bottom: 10px; }
+
+article h1 {
+  line-height: 36px;
+  margin-bottom: -20px; }
+
+.articleCircle {
+  background: #993366;
+  height: 200px;
+  width: 200px;
+  /* Width and height are half the intended values */
+  -moz-border-radius: 200px;
+  -webkit-border-radius: 200px;
+  border-radius: 200px;
+  border-style: none;
+  margin-right: 20px;
+  float: left; }
+
+.articleCircle > img {
+  padding: 50px;
+  /* Centers the image in the circle both horizontally and vertically */ }
+
+blockquote .quoteMark {
+  font-size: 300%;
+  color: #993366;
+  float: left;
+  padding-right: 5px;
+  font-family: "Times New Roman", Times, serif; }
+
+blockquote p {
+  border-left: 5px solid #999999;
+  margin-left: 30px;
+  padding-left: 10px; }
+
+blockquote .attribution, blockquote footer {
+  color: #993366;
+  text-align: right; }

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Jabra - Spin To Win</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script type="text/javascript">
+function embed(){
+	console.log('embed');
+	swfobject.embedSWF('jabra.swf', 'swf', '768', '1024', '10');
+};
+</script>
+<style>
+body{
+	background:#000000;
+}
+.centered{
+	margin:0 auto;
+}
+</style>
+</head>
+
+<body onload="embed();">
+<div class="swf_embed centered" style="width:768px;">
+	<div id="swf"></div>
+</div>
+</body>
+</html>

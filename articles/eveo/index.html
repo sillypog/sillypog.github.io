@@ -1,0 +1,34 @@
+<!--<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>-->
+
+<body>
+ <article>
+ 	<div class="articleCircle">
+ 		<img svg-src="eveo" class="articleImage"></img>
+    </div>
+ 	<h1>Eveo homepage Flash experience</h1>
+    <h3><a href="http://www.eveo.com" target="_blank">www.eveo.com</a></h3>
+    <p>While working as lead Flash developer at healthcare marketing firm Eveo, I was a key member of the team relaunching the company website. For the landing page, I created a unique interactive component for displaying our portfolio of work. The tile-flipping component was a great way to showcase the quality of design and engineering that goes into our products. The website won several awards that year, inluding the Interactive Media Awards best-in-class for <a href="http://www.interactivemediaawards.com/winners/certificate.asp?param=84748&cat=2" target="_blank">Healthcare</a> and a <a href="http://www.interactivemediaawards.com/winners/2011/top10sites.asp" target="_blank">Top 10 site</a> overall.</p>
+    <div class="swf_embed centered" style="width:994px;">
+	<div id="eveo_swf"></div>
+	</div>
+    <p>The tiles initially display a mission statement while the preloader brings in the large images used to show the work. Once loaded, the tiles flip once in an animated wave from one corner, teasing the viewer with the images beneath and encouraging them to interact with the piece. Hovering over one tile reveals the image beneath (as well as setting its neighbors briefly in motion); clicking on it causes all of the tiles to flip to reveal the full image and the descriptive copy within it.</p>
+    <p>I decided not to use a 3D engine for this work as I wanted to have very precise control over the lighting effects on the tiles as they move. Instead, the tiles subclass Soulwire's <a href="http://blog.soulwire.co.uk/code/open-source/two-sided-planes-in-flash-player-10" target="_blank">PaperSprite</a> class, which uses the built in 2.5D functionality introduced in Flash Player 10 to create a 2-sided sprite. The lighting is applied with a semitransparent black-white gradient, the alpha of each end being set based on the rotation of the tile. A winding calculation similar to that used in PaperSprite is used to flip the lighting when the tile crosses the Y axis. To ensure the lighting is both subtle and visible in all situations, the blend mode of the gradient is changed depending on whether the face of the tile is currently light or dark. To give the illusion of thickness, each tile has a bevel filter, the angle of which is set based on the sine regression of the tile rotation using empirically derived constants.</p>
+	<p>Given that the component was designed to show our most recent and best work, I designed it with change in mind. No manually processing of the images is required before they can be used, instead a BitmapSlicer class breaks the image into smaller images for each tile using BitmapData.copyPixels. All text within the images is created within Flash rather than being embedded in the original image, making it easy to change the brand message as needed.</p>
+	<p>User interaction is separated from the tiles themselves into a layer of MouseTiles which sit on top of the grid and do not rotate. Mouse events on these tiles are sent to the FlipCardManager with instructions to flip the tile at the corresponding array position. The tiles are stored in a 2-dimensional array which makes it easy to identify neighbouring tiles for animation. Similarly, clicks on a MouseTile select the matching image from a map array and those tiles are applied to the rear face of the tiles prior to the flip animation. During the flip animation the MouseTile layer listeners are removed to prevent further events firing. A small issue with this is that when they are reinstated, the tile that was clicked is rotated 180 degrees from the rest and should not respond to the first MouseOut event when the listeners are reinstated; the solution is a temporary listener for that tile whose sole function is to reinstate the regular listener.</p>  
+	<p>A bug in Flash Player causes the images on the tiles to become slightly enlarged when they are manipulated in 3D space. The solution to this bug has been posted <a href="http://www.flashandmath.com/flashcs4/blursol/index.html" target="_blank">online</a> but the complex nature of the display list within the tiles prevents this simple fix from working. I have since found a structure for the tiles which does allow this fix to work, although it relies on resizing the component so that the number of pixels in each dimension is exactly divisible by the number of divisions. To workaround the bug in the production version, the original image is reapplied to the tiles when they come to rest, resulting in a small shift in the image.</p> 
+ </article>
+ <script type="text/javascript">
+(function($){
+	console.log('Content Loaded - Eveo');
+	if (!swfobject){
+		console.log('swfobject not ready');
+	}
+	swfobject.embedSWF('articles/eveo/swf/Preloader.swf', 'eveo_swf', '994', '416', '10');
+	
+ })(jQuery);
+ </script>
+</body>
+<!--</html>-->

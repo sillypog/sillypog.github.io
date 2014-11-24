@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>Sillypog:* - Peter Hastie, Interactive Developer</title>
+
+    <!-- External resources -->
+  <link  href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css" />
+
+  <!-- Include development or production CSS, depending on build -->
+  <link rel="stylesheet" href="css/sillypogcom.css">
+
+  <!-- Add Modernizr in head but after CSS -->
+  <script src="modernizr.js"></script>
+
+  <!-- Templates -->
+  <script type="text/x-jQuery-tmpl" id="link_template">
+    <div class="portfolioCircle">
+      <div class="linksTopSpacer"></div>
+      <div class="link-${icon}"></div>
+    </div>
+  </script>
+  <script type="text/x-jQuery-tmpl" id="portfolio_intro_placeholder">
+    <div class="bigCircle movable"></div>
+    <img id="pc1" class="movable" svg-src="twitterT" />
+    <img id="pc2" class="movable" svg-src="acrobatA" />
+    <img id="pc3" class="movable" svg-src="exitAbout"/>
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <div class="paleWhiteBG"></div>
+      <h1>
+        <a title="Sillypog:* - Peter Hastie, Interactive Developer" href="/">Sillypog:*</a>
+      </h1>
+  </header>
+
+
+  <div id="sections">
+
+    <section id="about" class="hidden">
+        <div id="aboutFloater"></div>
+          <div id="aboutFloated">
+            <header class="bigCircle">
+                <h1>My name is Peter Hastie.</h1>
+                <h2>I am a software developer.</h2>
+            </header>
+           <div id="aboutText">
+                <p>For the past several years I have worked with creative agencies and start ups in San Francisco, bringing to life ambitious interactive projects that delight and inform.</p>
+                <p>From Flash to open web technologies, touch screen experiences and connected applications, I am always looking to explore the edges of what is possible and share my passion for novelty with the world.</p>
+                <p>Click any of the links below for more information or start browsing my work here.</p>
+            </div>
+            <div id="aboutLinks">
+                    <a href="#!links"><img id="ac1" svg-src="twitterT" alt="Links" /></a>
+                    <a href="peterhastie_cv.pdf"><img id="ac2" svg-src="acrobatA" alt="Resume" /></a>
+                    <a href="#!portfolio"><img id="ac3" svg-src="exitAbout" alt="Launch" /></a>
+            </div>
+        </div>
+      </section>
+      <section id="portfolio" class="hidden">
+        <div class="area"></div>
+          <ul id="contents" class="plainList"></ul>
+          <div id="description"></div>
+      </section>
+      <section id="links" class="hidden">
+        <div class="area hidden"></div><!-- Hide the area when the list is not composed of movable elements -->
+          <ul id="linksList" class="plainList">
+            <li><a href="http://twitter.com/#!/sillypog" id="twitter" target="_blank"></a></li>
+              <li><a href="http://poglogin.blogspot.com" id="blogger" target="_blank"></a></li>
+              <li><a href="http://github.com/sillypog" id="github" target="_blank"></a></li>
+              <li><a href="http://www.linkedin.com/pub/peter-hastie/15/475/845" id="linkedin" target="_blank"></a></li>
+              <li><a href="mailto:pete@sillypog.com" id="email"></a></li>
+          </ul>
+      </section>
+      <section id="articles" class="hidden"></section>
+  </div>
+
+  <footer>
+  <div class="paleWhiteBG"></div>
+    <nav id="footerButtons">
+      <p><a href="/">About</a></p>
+      <p><a href="#!portfolio">Portfolio</a></p>
+      <p style="visibility:hidden"><a href="http://www.sillypog.com">Filter</a></p>
+      <p id="contact"><a href="mailto:pete@sillypog.com">pete@sillypog.com</a></p>
+    </nav>
+  </footer>
+
+  <!-- Popular libraries from Google CDN -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>'); // Fallback if CDN is down.</script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+  <!-- Javascript packages -->
+  <script src="common.js"></script>
+</body>
+</html>
