@@ -1,0 +1,5 @@
+http://flash.tarotaro.org/blog/2008/12/14/artoolkit-marker-generator-online-released/
+
+Make sure you don't get any of the black border!
+
+Works fine with taking picture mode
